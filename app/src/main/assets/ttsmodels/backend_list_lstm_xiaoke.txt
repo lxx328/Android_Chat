@@ -1,0 +1,3 @@
+/storage/emulated/0/Android/data/com.xctech.esop/files/ttsmodels/backend_list_duration_xiaoke.txt
+/storage/emulated/0/Android/data/com.xctech.esop/files/ttsmodels/backend_list_acoustic_xiaoke.txt
+/storage/emulated/0/Android/data/com.xctech.esop/files/ttsmodels/backend_list_vocoder_xiaoke.txt

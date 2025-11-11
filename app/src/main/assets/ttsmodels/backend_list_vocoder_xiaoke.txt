@@ -1,0 +1,1 @@
+xiaoke,/storage/emulated/0/Android/data/com.xctech.esop/files/ttsmodels/vocoder_model.xiaoke.qint8,/storage/emulated/0/Android/data/com.xctech.esop/files/ttsmodels/xiaoke_gta.dat,/storage/emulated/0/Android/data/com.xctech.esop/files/ttsmodels/xiaoke_gt.dat

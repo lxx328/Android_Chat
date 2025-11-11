@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Smart Agent</string>
+    <string name="switch_character">Switch Character</string>
+    <string name="view_memos">View Memos</string>
+    <string name="help">Help</string>
+
+</resources>

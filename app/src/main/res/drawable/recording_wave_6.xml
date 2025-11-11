@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- 背景圆形 -->
+    <path
+        android:fillColor="#80E8F5E8"
+        android:pathData="M60,60m-48,0a48,48 0,1 1,96 0a48,48 0,1 1,-96 0"/>
+
+    <!-- 波形条 - 使用圆角和渐变 -->
+    <path
+        android:fillColor="@color/blue_500"
+        android:pathData="M30,25L30,95A2,2 0,0 0,32 97L36,97A2,2 0,0 0,38 95L38,25A2,2 0,0 0,36 23L32,23A2,2 0,0 0,30 25z"/>
+    
+    <path
+        android:fillColor="@color/blue_500"
+        android:pathData="M42,15L42,105A2,2 0,0 0,44 107L48,107A2,2 0,0 0,50 105L50,15A2,2 0,0 0,48 13L44,13A2,2 0,0 0,42 15z"/>
+    
+    <path
+        android:fillColor="@color/blue_500"
+        android:pathData="M54,35L54,85A2,2 0,0 0,56 87L60,87A2,2 0,0 0,62 85L62,35A2,2 0,0 0,60 33L56,33A2,2 0,0 0,54 35z"/>
+    
+    <path
+        android:fillColor="@color/blue_500"
+        android:pathData="M66,15L66,105A2,2 0,0 0,68 107L72,107A2,2 0,0 0,74 105L74,15A2,2 0,0 0,72 13L68,13A2,2 0,0 0,66 15z"/>
+    
+    <path
+        android:fillColor="@color/blue_500"
+        android:pathData="M78,25L78,95A2,2 0,0 0,80 97L84,97A2,2 0,0 0,86 95L86,25A2,2 0,0 0,84 23L80,23A2,2 0,0 0,78 25z"/>
+
+</vector> 

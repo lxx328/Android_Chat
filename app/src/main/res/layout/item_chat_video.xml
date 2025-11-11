@@ -1,0 +1,12 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+
+    <com.dexter.h20_local_ai_demo.widget.JusticeJzPlayerView
+        android:id="@+id/jz_player_view"
+        android:layout_width="240dp"
+        android:layout_height="200dp"
+        android:layout_gravity="start|center_vertical"/>
+</FrameLayout>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="48dp"
+            android:height="48dp"
+            android:viewportWidth="48"
+            android:viewportHeight="48">
+            
+            <!-- 背景圆形 -->
+            <path
+                android:name="background"
+                android:fillColor="#E8F5E8"
+                android:pathData="M24,24m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0"/>
+            
+            <!-- 波形条1 -->
+            <path
+                android:name="wave1"
+                android:fillColor="#4CAF50"
+                android:pathData="M16,20L16,28L18,28L18,20Z"/>
+            
+            <!-- 波形条2 -->
+            <path
+                android:name="wave2"
+                android:fillColor="#4CAF50"
+                android:pathData="M20,18L20,30L22,30L22,18Z"/>
+            
+            <!-- 波形条3 -->
+            <path
+                android:name="wave3"
+                android:fillColor="#4CAF50"
+                android:pathData="M24,16L24,32L26,32L26,16Z"/>
+            
+            <!-- 波形条4 -->
+            <path
+                android:name="wave4"
+                android:fillColor="#4CAF50"
+                android:pathData="M28,18L28,30L30,30L30,18Z"/>
+            
+            <!-- 波形条5 -->
+            <path
+                android:name="wave5"
+                android:fillColor="#4CAF50"
+                android:pathData="M32,20L32,28L34,28L34,20Z"/>
+            
+        </vector>
+    </aapt:attr>
+    
+    <!-- 波形条1动画 -->
+    <target android:name="wave1">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:valueFrom="M16,20L16,28L18,28L18,20Z"
+                    android:valueTo="M16,16L16,32L18,32L18,16Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:valueFrom="M16,16L16,32L18,32L18,16Z"
+                    android:valueTo="M16,20L16,28L18,28L18,20Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <!-- 波形条2动画 -->
+    <target android:name="wave2">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:startOffset="100"
+                    android:valueFrom="M20,18L20,30L22,30L22,18Z"
+                    android:valueTo="M20,14L20,34L22,34L22,14Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:valueFrom="M20,14L20,34L22,34L22,14Z"
+                    android:valueTo="M20,18L20,30L22,30L22,18Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <!-- 波形条3动画 -->
+    <target android:name="wave3">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:startOffset="200"
+                    android:valueFrom="M24,16L24,32L26,32L26,16Z"
+                    android:valueTo="M24,12L24,36L26,36L26,12Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:valueFrom="M24,12L24,36L26,36L26,12Z"
+                    android:valueTo="M24,16L24,32L26,32L26,16Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <!-- 波形条4动画 -->
+    <target android:name="wave4">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:startOffset="100"
+                    android:valueFrom="M28,18L28,30L30,30L30,18Z"
+                    android:valueTo="M28,14L28,34L30,34L30,14Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:valueFrom="M28,14L28,34L30,34L30,14Z"
+                    android:valueTo="M28,18L28,30L30,30L30,18Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <!-- 波形条5动画 -->
+    <target android:name="wave5">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:valueFrom="M32,20L32,28L34,28L34,20Z"
+                    android:valueTo="M32,16L32,32L34,32L34,16Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="300"
+                    android:valueFrom="M32,16L32,32L34,32L34,16Z"
+                    android:valueTo="M32,20L32,28L34,28L34,20Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+</animated-vector> 

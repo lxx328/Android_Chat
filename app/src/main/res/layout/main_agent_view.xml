@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Background Gradient -->
+    <View
+        android:id="@+id/bk_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/cloud" />
+
+
+    <!-- Menu Container -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="16dp"
+            android:padding="8dp">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/layout_query_notes"
+                android:gravity="center_vertical">
+                <ImageButton
+                    android:id="@+id/btnViewMemos"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/menu_button_selector"
+                    android:src="@drawable/ic_notebook"
+                    android:scaleType="centerInside"
+                    android:padding="12dp"
+                    android:contentDescription="@string/view_memos" />
+
+                <TextView
+                    android:id="@+id/btnViewMemosName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="查看备忘录"
+                    android:textSize="14sp"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/layout_switch_character"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/btnSwitchCharacter"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/menu_button_selector"
+                    android:src="@drawable/ic_users"
+                    android:scaleType="centerInside"
+                    android:padding="12dp"
+                    android:contentDescription="@string/switch_character" />
+
+                <TextView
+                    android:id="@+id/btnSwitchCharacterTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+
+                    android:text="切换角色"
+                    android:textSize="14sp"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout_tips"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/btnHelp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/menu_button_selector"
+                    android:src="@drawable/ic_help_circle"
+                    android:scaleType="centerInside"
+                    android:padding="12dp"
+                    android:contentDescription="@string/help" />
+
+                <TextView
+                    android:id="@+id/tvSwitchCharacterNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="帮助"
+                    android:textSize="14sp"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    <ImageView
+        android:id="@+id/characterAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/gril"
+        />
+
+    <include
+        layout="@layout/tts_droplet_dialog"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:visibility="visible" />
+    <!-- Agent Character -->
+
+</RelativeLayout>

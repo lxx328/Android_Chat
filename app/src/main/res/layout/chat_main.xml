@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_100">
+
+    <!-- Phone Container -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="24dp"
+        app:cardBackgroundColor="@android:color/white">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <!-- Status Bar -->
+            <include
+                layout="@layout/status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <!-- Main Content Container -->
+            <FrameLayout
+                android:id="@+id/mainContentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp">
+
+                <!-- Main Agent View -->
+                <include
+                    android:id="@+id/mainAgentView"
+                    layout="@layout/main_agent_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- Memo List View -->
+                <include
+                    android:id="@+id/memoListView"
+                    layout="@layout/memo_list_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+
+            </FrameLayout>
+
+
+
+            <!-- Interaction Button -->
+            <include
+                android:id="@+id/interactionButton"
+                layout="@layout/interaction_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom" />
+
+            <!-- Status Message Toast -->
+            <TextView
+                android:id="@+id/statusMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/toast_background"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:textColor="@android:color/white"
+                android:visibility="gone"
+                tools:text="Recording saved to memos." />
+
+
+            <!-- Character Drawer -->
+            <include
+                android:id="@+id/characterDrawer"
+                layout="@layout/character_drawer"
+                android:visibility="gone" />
+
+            <!-- Help Modal -->
+            <include
+                android:id="@+id/helpModal"
+                layout="@layout/help_modal"
+                android:visibility="gone" />
+
+            <!-- Home Indicator -->
+            <View
+                android:layout_width="128dp"
+                android:layout_height="4dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/home_indicator"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="80dp"
+            android:name="com.google.android.material.bottomsheet.BottomSheetDialogFragment"
+            android:tag="CharacterDrawer"
+            android:visibility="visible"
+            android:id="@+id/loading_frame"
+            tools:layout="@layout/character_drawer" >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 加载指示器 -->
+                <ProgressBar
+                    android:id="@+id/loading_indicator"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:indeterminateTint="@color/blue_500"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:visibility="visible" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="loading" />
+            </LinearLayout>
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

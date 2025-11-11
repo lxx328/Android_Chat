@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 标题和操作按钮区域 -->
+        <LinearLayout
+            android:id="@+id/titleContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- CheckBox -->
+            <CheckBox
+                android:id="@+id/memoCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+
+            <!-- 标题容器 -->
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/memoTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gray_800" />
+
+                <!-- 标题擦除线 -->
+                <View
+                    android:id="@+id/titleStrikeThroughLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/gray_700"
+                    android:visibility="gone"
+                    android:layout_gravity="center_vertical" />
+
+            </FrameLayout>
+
+            <!-- 录音时长显示 -->
+            <TextView
+                android:id="@+id/memoDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/duration_background"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:textSize="12sp"
+                android:textColor="@color/blue_600"
+                android:visibility="gone" />
+
+            <!-- 删除按钮 -->
+            <ImageView
+                android:id="@+id/deleteButton"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="2dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="4dp"
+                android:src="@drawable/ic_trash"
+                app:tint="@color/red_500" />
+
+        </LinearLayout>
+
+        <!-- 内容区域 -->
+        <TextView
+            android:id="@+id/memoContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:textColor="@color/gray_600"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <!-- ASR内容预览 -->
+        <TextView
+            android:id="@+id/memoAsrContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/asr_content_background"
+            android:padding="8dp"
+            android:textSize="12sp"
+            android:textColor="@color/blue_700"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:visibility="gone" />
+
+        <!-- 日期 -->
+        <TextView
+            android:id="@+id/memoDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            android:textColor="@color/gray_400" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.cardview.widget.CardView-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginBottom="16dp"-->
+<!--    app:cardCornerRadius="12dp"-->
+<!--    app:cardElevation="8dp"-->
+<!--    app:cardBackgroundColor="@android:color/white">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:padding="16dp">-->
+
+<!--        &lt;!&ndash; 标题和操作按钮区域 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center_vertical">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/memoTitle"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/gray_800" />-->
+
+<!--            &lt;!&ndash; 录音时长显示 &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/memoDuration"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:background="@drawable/duration_background"-->
+<!--                android:paddingHorizontal="8dp"-->
+<!--                android:paddingVertical="4dp"-->
+<!--                android:textSize="12sp"-->
+<!--                android:textColor="@color/blue_600"-->
+<!--                android:visibility="gone" />-->
+
+<!--            &lt;!&ndash; 删除按钮 &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:id="@+id/deleteButton"-->
+<!--                android:layout_width="44dp"-->
+<!--                android:layout_height="44dp"-->
+<!--                android:layout_marginEnd="2dp"-->
+<!--                android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--                android:padding="4dp"-->
+<!--                android:src="@drawable/ic_trash"-->
+<!--                app:tint="@color/red_500" />-->
+
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; 内容区域 &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/memoContent"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textColor="@color/gray_600"-->
+<!--            android:maxLines="2"-->
+<!--            android:ellipsize="end" />-->
+
+<!--        &lt;!&ndash; ASR内容预览 &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/memoAsrContent"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:background="@drawable/asr_content_background"-->
+<!--            android:padding="8dp"-->
+<!--            android:textSize="12sp"-->
+<!--            android:textColor="@color/blue_700"-->
+<!--            android:maxLines="1"-->
+<!--            android:ellipsize="end"-->
+<!--            android:visibility="gone" />-->
+
+<!--        &lt;!&ndash; 日期 &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/memoDate"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:textSize="12sp"-->
+<!--            android:textColor="@color/gray_400" />-->
+
+<!--    </LinearLayout>-->
+
+<!--</androidx.cardview.widget.CardView>-->

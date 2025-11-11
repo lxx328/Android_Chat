@@ -1,0 +1,68 @@
+[versions]
+agp = "8.8.1"
+kotlin = "1.9.24"
+coreKtx = "1.16.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.1"
+material = "1.12.0"
+
+glideVersion = "4.16.0"
+jzplayer = "7.7.0"
+retrofit = "2.9.0"
+coroutinesCore = "1.7.3"
+coroutinesAndroid = "1.7.3"
+lifecycleVersion = "2.4.0"
+ktxVersion = "1.2.0"
+okHttpVersion = "4.12.0"
+mqttv5 = "1.2.5"
+timber = "4.7.1"
+localbroadcastmanager = "1.0.0"
+lifecycleServer = "2.5.1"
+
+gson = "2.8.8"
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+mqttv5 = { group = "org.eclipse.paho", name = "org.eclipse.paho.mqttv5.client", version.ref = "mqttv5" }
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+localbroadcastmanager = { group = "androidx.localbroadcastmanager", name = "localbroadcastmanager", version.ref = "localbroadcastmanager" }
+
+
+
+#jzPlayer
+jzplayer = { group = "cn.jzvd",  name = "jiaozivideoplayer", version.ref = "jzplayer" }
+
+#glide
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glideVersion" }
+retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit2ConverterGson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+
+#coroutines
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutinesCore" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesAndroid" }
+
+#androidx.lifecycle:lifecycle-viewmodel-ktx
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleVersion" }
+
+#viewModes
+#implementation "androidx.activity:activity-ktx:1.2.0"
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "ktxVersion" }
+#implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+okhttp3-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okHttpVersion" }
+#androidx.lifecycle:lifecycle-service:2.5.1
+androidx-lifecycle-service = { group = "androidx.lifecycle", name = "lifecycle-service", version.ref = "lifecycleServer" }
+
+#com.google.code.gson:gson:2.8.8'
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize" }

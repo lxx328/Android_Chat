@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+
+    <!-- 静态按钮样式 -->
+    <LinearLayout
+        android:id="@+id/staticButton"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/static_button_selector"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp"
+        android:elevation="8dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_mic"
+            android:layout_marginEnd="12dp"
+            app:tint="@color/gray_600" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按住与我对话"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray_600" />
+
+    </LinearLayout>
+
+    <!-- 仿微信录音交互界面 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/holdInteractionOverlay"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom|center_horizontal"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="24dp"
+        app:cardBackgroundColor="#9EFFFFFF"
+        android:visibility="gone">
+<!--        app:cardBackgroundColor="#F0FFFFFF"
+-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 背景椭圆 -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="@drawable/wechat_recording_background" />
+            <!-- 左上角取消区域 -->
+            <FrameLayout
+                android:id="@+id/cancelButton"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp">
+
+                <!-- 取消区域背景 -->
+                <View
+                    android:id="@+id/cancelZoneBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cancel_zone_background"
+                    android:alpha="0" />
+
+                <!-- 取消图标和文字 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/cancelIcon"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_cancel_wechat"
+                        app:tint="@color/red_500" />
+
+                    <TextView
+                        android:id="@+id/cancelText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="取消"
+                        android:textSize="12sp"
+                        android:textColor="@color/red_500"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <!-- 右上角备忘录区域 -->
+            <FrameLayout
+                android:id="@+id/memoButton"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_gravity="top|end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp">
+
+                <!-- 备忘录区域背景 -->
+                <View
+                    android:id="@+id/memoZoneBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/memo_zone_background"
+                    android:alpha="0" />
+
+                <!-- 备忘录图标和文字 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/memoIcon"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_memo_wechat"
+                        app:tint="@color/blue_500" />
+
+                    <TextView
+                        android:id="@+id/memoText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="备忘录"
+                        android:textSize="12sp"
+                        android:textColor="@color/blue_500"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+            <!-- 中央录音状态区域 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <!-- 录音状态文本 -->
+                <TextView
+                    android:id="@+id/recordingStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="松开发送"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gray_700" />
+
+                <!-- 录音波形动画 -->
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="8dp">
+
+                    <!-- 录音波形背景圆圈 -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/recording_wave_circle"
+                        android:alpha="0.3" />
+
+                    <!-- 动态录音图标 -->
+                    <ImageView
+                        android:id="@+id/recordingWaveformIcon"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_mic_active"
+                        app:tint="@color/blue_600" />
+
+                </FrameLayout>
+
+                <!-- 操作提示文字 -->
+                <TextView
+                    android:id="@+id/operationHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="向上滑动取消"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:textColor="@color/gray_500"
+                    android:alpha="0.8" />
+
+            </LinearLayout>
+
+            <!-- 录音时长显示 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/recording_time_background"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp">
+
+                <View
+                    android:id="@+id/recordingIndicator"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/recording_indicator_dot" />
+
+                <TextView
+                    android:id="@+id/recordingTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray_700"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- 思考状态样式 -->
+    <LinearLayout
+        android:id="@+id/thinkingState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/thinking_bubble_background"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="12dp"
+        android:elevation="8dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_thinking"
+            android:layout_marginEnd="8dp"
+            app:tint="@color/gray_600" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="思考中，请稍后输入"
+            android:textSize="14sp"
+            android:textColor="@color/gray_600" />
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_thinking"
+            android:layout_marginStart="8dp"
+            app:tint="@color/blue_500" />
+
+    </LinearLayout>
+
+
+    <!--    &lt;!&ndash; 按住时的交互界面 &ndash;&gt;-->
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/holdInteractionOverlay"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="280dp"-->
+<!--        android:layout_marginHorizontal="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        app:cardCornerRadius="24dp"-->
+<!--        app:cardElevation="24dp"-->
+<!--        app:cardBackgroundColor="#CCFFFFFF"-->
+<!--        android:visibility="gone">-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:padding="24dp">-->
+
+<!--            &lt;!&ndash; 左上角取消按钮 &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/cancelButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/cancelButtonCard"-->
+<!--                    android:layout_width="56dp"-->
+<!--                    android:layout_height="56dp"-->
+<!--                    app:cardCornerRadius="28dp"-->
+<!--                    app:cardElevation="8dp"-->
+<!--                    app:cardBackgroundColor="@android:color/white">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:padding="16dp"-->
+<!--                        android:src="@drawable/ic_x"-->
+<!--                        app:tint="@color/red_500" />-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:text="取消"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="@color/gray_600" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; 右上角生成备忘录按钮 &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/memoButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/memoButtonCard"-->
+<!--                    android:layout_width="56dp"-->
+<!--                    android:layout_height="56dp"-->
+<!--                    app:cardCornerRadius="28dp"-->
+<!--                    app:cardElevation="8dp"-->
+<!--                    app:cardBackgroundColor="@android:color/white">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:padding="16dp"-->
+<!--                        android:src="@drawable/ic_notebook"-->
+<!--                        app:tint="@color/green_500" />-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:text="生成备忘录"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="@color/gray_600" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; 中央录音区域 &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
+
+<!--                &lt;!&ndash; 录音状态文本 &ndash;&gt;-->
+<!--                <TextView-->
+<!--                    android:id="@+id/recordingStatus"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="松开发送"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="@color/gray_600" />-->
+
+<!--                &lt;!&ndash; 操作提示 &ndash;&gt;-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:gravity="center">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="左滑取消"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:textColor="@color/gray_500" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="2dp"-->
+<!--                        android:text="右滑动生成备忘"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:textColor="@color/gray_500" />-->
+
+<!--                </LinearLayout>-->
+
+<!--                &lt;!&ndash; 动态音频波形图标 &ndash;&gt;-->
+<!--                <ImageView-->
+<!--                    android:id="@+id/recordingWaveformIcon"-->
+<!--                    android:layout_width="120dp"-->
+<!--                    android:layout_height="120dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:src="@drawable/recording_wave_1"-->
+<!--                    android:visibility="gone" />-->
+
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+<!--    &lt;!&ndash; 思考状态样式 &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/thinkingState"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom|center_horizontal"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center"-->
+<!--        android:background="@drawable/thinking_bubble_background"-->
+<!--        android:paddingHorizontal="20dp"-->
+<!--        android:paddingVertical="12dp"-->
+<!--        android:elevation="8dp"-->
+<!--        android:visibility="gone">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:src="@drawable/ic_thinking"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            app:tint="@color/gray_600" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="思考中，请稍后输入"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textColor="@color/gray_600" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="16dp"-->
+<!--            android:layout_height="16dp"-->
+<!--            android:src="@drawable/ic_thinking"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            app:tint="@color/blue_500" />-->
+
+<!--    </LinearLayout>-->
+
+</FrameLayout>
